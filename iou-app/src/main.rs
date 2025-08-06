@@ -1,4 +1,5 @@
-use smol_iroh::{start_node, send_credit, Credit};
+
+use smol_iroh::{start_node, route_credit, Credit};
 use smol::future;
 
 /// Demonstrates creating a node and sending a credit.
@@ -12,7 +13,11 @@ fn main() {
         smol::Timer::after(std::time::Duration::from_millis(100)).await;
 
         // Send a sample credit from Alice to Bob
+        let credit = Credit::new("alice", "bob", 5);
+        let path = vec!["127.0.0.1:7000".to_string()];
+        route_credit(&path, credit).await.expect("route credit");
         let credit = Credit { from: "alice".into(), to: "bob".into(), amount: 5 };
         send_credit("127.0.0.1:7000", credit).await.expect("send credit");
+
     });
 }
