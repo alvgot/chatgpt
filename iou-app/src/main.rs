@@ -1,0 +1,18 @@
+use smol_iroh::{start_node, send_credit, Credit};
+use smol::future;
+
+/// Demonstrates creating a node and sending a credit.
+/// In a real mobile environment this would be tied to a UI and secure storage.
+fn main() {
+    future::block_on(async {
+        // Launch node in background
+        smol::spawn(start_node("127.0.0.1:7000")).detach();
+
+        // Give the node a moment to start
+        smol::Timer::after(std::time::Duration::from_millis(100)).await;
+
+        // Send a sample credit from Alice to Bob
+        let credit = Credit { from: "alice".into(), to: "bob".into(), amount: 5 };
+        send_credit("127.0.0.1:7000", credit).await.expect("send credit");
+    });
+}
