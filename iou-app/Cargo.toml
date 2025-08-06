@@ -7,13 +7,3 @@ edition = "2021"
 smol = "1.3"
 smol-iroh = { path = "../smol-iroh" }
 
-[target.'cfg(target_os = "android")'.dependencies]
-ndk-glue = "0.7"
-
-[lib]
-name = "iou_app"
-crate-type = ["cdylib"]
-
-[package.metadata.android]
-package = "com.example.iouapp"
-label = "IOU App"
