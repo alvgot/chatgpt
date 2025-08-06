@@ -1,4 +1,6 @@
-use smol_iroh::{start_node, route_credit, Credit};
+
+use smol_iroh::{start_node, send_credit, Credit};
+
 
 /// Android entry point using ndk-glue's main macro.
 /// This spawns a local node and sends a demonstration credit.

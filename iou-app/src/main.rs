@@ -1,3 +1,4 @@
+
 use smol_iroh::{start_node, route_credit, Credit};
 use smol::future;
 
@@ -15,5 +16,8 @@ fn main() {
         let credit = Credit::new("alice", "bob", 5);
         let path = vec!["127.0.0.1:7000".to_string()];
         route_credit(&path, credit).await.expect("route credit");
+        let credit = Credit { from: "alice".into(), to: "bob".into(), amount: 5 };
+        send_credit("127.0.0.1:7000", credit).await.expect("send credit");
+
     });
 }

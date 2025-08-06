@@ -17,3 +17,4 @@ crate-type = ["cdylib"]
 [package.metadata.android]
 package = "com.example.iouapp"
 label = "IOU App"
+

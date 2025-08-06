@@ -1,7 +1,6 @@
 # Decentralized IOU Marketplace
 
 ## Vision
-Create a peer-to-peer marketplace where participants exchange goods and services using a mutual credit system. The network avoids traditional blockchains by routing IOU credits directly between peers, enabling privacy-preserving and low-cost transactions. Credits can be triangulated across multiple hops without revealing the full route.
 
 ## Technology
 - **smol-iroh library**: A lightweight Rust library providing smol-based networking primitives inspired by the iroh project.
