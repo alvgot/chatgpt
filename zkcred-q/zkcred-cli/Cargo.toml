@@ -1,0 +1,7 @@
+
+[package]
+name = "zkcred-cli"
+version = "1.0.0"
+edition = "2021"
+[dependencies]
+zkcred-core = { path = "../zkcred-core" }

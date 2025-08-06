@@ -1,0 +1,14 @@
+
+name: Build and Test
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Build
+        run: cargo build --workspace
+      - name: Test
+        run: cargo test --workspace

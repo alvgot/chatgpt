@@ -1,0 +1,1 @@
+pub fn credit_issued() -> bool { true }
